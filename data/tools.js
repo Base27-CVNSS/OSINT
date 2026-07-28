@@ -1,0 +1,2 @@
+window.OSINT_CATEGORIES=["Điện thoại","Email","Tên người dùng","Tên miền & DNS","Rò rỉ dữ liệu","Siêu dữ liệu","Công cụ tìm kiếm","Tìm kiếm ảnh ngược","Mạng xã hội","Định vị địa lý","Lưu trữ web","Doanh nghiệp","Mã nguồn & Kho mã","Giao thông & Phương tiện","Giám sát & Threat Intel","Tài liệu & Dữ liệu","Trực quan hóa dữ liệu","Telegram OSINT","Trình duyệt & OPSEC","Công cụ AI","Tài nguyên","Tìm người & Hồ sơ","Web, Traffic & SEO","Kiểm chứng & Xác minh","Module Colombia"];
+window.OSINT_TOOLS=[];
