@@ -2,3 +2,4 @@ window.OSINT_CATEGORIES=["Điện thoại","Email","Tên người dùng","Tên m
 window.OSINT_TOOLS=[];
 window.OSINT_CURATION='Do Long Ngo sưu tầm và cập nhật';
 [1,2,3,4,5,6,7,8,9,10].forEach(function(i){document.write('<script src="data/tools-'+i+'.js"></script>')});
+document.write('<script src="data/enhance.js"></script>');
