@@ -15,7 +15,7 @@
 [![License](https://img.shields.io/badge/Dashboard-MIT-34d399?style=for-the-badge)](./LICENSE)
 
 **Search • AI • Geolocation • Breaches • Social Media • Blockchain • News • Academic • OCR • Patents • Podcasts • Network Analysis • OPSEC**
-
+https://base27-cvnss.github.io/OSINT/
 ### 🧭 Do **Long Ngo** sưu tầm và cập nhật
 
 </div>
