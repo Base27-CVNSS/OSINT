@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#071825">
+  <meta name="description" content="GEE OSINT Việt Nam — cổng tra cứu 242 tài nguyên Google Earth Engine được tuyển chọn và Việt hóa từ Awesome-GEE.">
+  <meta name="keywords" content="Google Earth Engine, GEE, OSINT, GEOINT, viễn thám, GIS, dữ liệu vệ tinh, geemap, Python, JavaScript">
+  <meta name="author" content="Long Ngo · Base27-CVNSS">
+  <meta property="og:title" content="GEE OSINT Việt Nam">
+  <meta property="og:description" content="Tìm nhanh tài liệu, thư viện, dữ liệu, khóa học và nghiên cứu Google Earth Engine trong một dashboard tiếng Việt.">
+  <meta property="og:type" content="website">
+  <title>GEE OSINT Việt Nam — Trạm điều phối tài nguyên Earth Engine</title>
+  <link rel="icon" href="assets/gee-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="data/resources.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#resourceExplorer">Bỏ qua đến kho tài nguyên</a>
+
+  <svg class="icon-sprite" aria-hidden="true">
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 4h5v5M20 4l-9 9"/><path d="M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.8 5.8 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2-4.5-4.4 6.2-.9L12 3Z"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 5h16l-6 7v5l-4 2v-7L4 5Z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.3c0 4.6 3.1 7.9 7.5 9.7 4.4-1.8 7.5-5.1 7.5-9.7V6L12 3Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 9-4 3 4 3m8-6 4 3-4 3m-2-9-4 12"/></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.5A3.5 3.5 0 0 1 7.5 2H11v17H7.5A3.5 3.5 0 0 0 4 22V5.5ZM20 5.5A3.5 3.5 0 0 0 16.5 2H13v17h3.5A3.5 3.5 0 0 1 20 22V5.5Z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.3 2.4 3.5 5.4 3.5 9S14.3 18.6 12 21c-2.3-2.4-3.5-5.4-3.5-9S9.7 5.4 12 3Z"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="#top" aria-label="GEE OSINT Việt Nam — về đầu trang">
+        <img src="assets/gee-mark.svg" alt="" width="44" height="44">
+        <span><strong>GEE OSINT</strong><small>VIỆT NAM</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <a href="#workflow">Quy trình</a>
+        <a href="#resourceExplorer">Tài nguyên</a>
+        <a href="#responsible">Sử dụng đúng</a>
+        <a href="../">OSINT Hub</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-button" id="themeToggle" type="button" aria-label="Chuyển giao diện sáng/tối" title="Chuyển giao diện">
+          <svg class="icon theme-icon-moon"><use href="#i-moon"/></svg>
+          <svg class="icon theme-icon-sun"><use href="#i-sun"/></svg>
+        </button>
+        <a class="nav-github" href="https://github.com/Base27-CVNSS/OSINT/tree/main/gee" target="_blank" rel="noreferrer">
+          GitHub <svg class="icon"><use href="#i-external"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero container" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="live-dot"></span> TRẠM ĐIỀU PHỐI GEOINT MỞ</div>
+        <h1 id="heroTitle">Quan sát Trái Đất.<br><span>Đặt đúng câu hỏi.</span></h1>
+        <p class="hero-lead">Cổng tiếng Việt giúp bạn tìm đúng tài liệu, API, thư viện, bộ dữ liệu, khóa học và nghiên cứu về <strong>Google Earth Engine</strong>—không phải lục tìm qua hàng trăm tab rời rạc.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#resourceExplorer">Khám phá tài nguyên <svg class="icon"><use href="#i-arrow"/></svg></a>
+          <a class="button secondary" href="https://code.earthengine.google.com/" target="_blank" rel="noreferrer">Mở Code Editor <svg class="icon"><use href="#i-external"/></svg></a>
+        </div>
+        <div class="trust-row">
+          <span><svg class="icon"><use href="#i-shield"/></svg> Nguồn CC0</span>
+          <span><svg class="icon"><use href="#i-globe"/></svg> Việt hóa &amp; tuyển chọn</span>
+          <span><svg class="icon"><use href="#i-code"/></svg> Không backend</span>
+        </div>
+      </div>
+
+      <div class="orbit-console" role="img" aria-label="Mô phỏng quy trình quan sát Trái Đất">
+        <div class="console-top"><span>EARTH OBSERVATION CONSOLE</span><span class="status">● ONLINE</span></div>
+        <div class="orbit-stage">
+          <div class="radar-ring ring-1"></div>
+          <div class="radar-ring ring-2"></div>
+          <div class="planet">
+            <span class="land land-a"></span><span class="land land-b"></span><span class="land land-c"></span>
+          </div>
+          <div class="satellite"><span></span></div>
+          <div class="scan-line"></div>
+          <span class="coordinate coord-a">10.8231° N</span>
+          <span class="coordinate coord-b">106.6297° E</span>
+        </div>
+        <div class="console-grid">
+          <div><span>TÀI NGUYÊN</span><strong id="heroResourceCount">242</strong></div>
+          <div><span>NHÓM CHÍNH</span><strong id="heroSectionCount">18</strong></div>
+          <div><span>NGUỒN</span><strong>CC0</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="signal-strip" aria-label="Thống kê nhanh">
+      <div class="container signal-grid">
+        <div><strong id="resourceCount">—</strong><span>Tài nguyên tuyển chọn</span></div>
+        <div><strong id="officialCount">—</strong><span>Nguồn chính thức</span></div>
+        <div><strong id="datasetCount">—</strong><span>Dữ liệu &amp; nghiên cứu</span></div>
+        <div><strong id="legacyCount">—</strong><span>Liên kết cần rà soát</span></div>
+      </div>
+    </section>
+
+    <section class="section container" id="workflow">
+      <div class="section-heading split-heading">
+        <div><span class="kicker">QUY TRÌNH 05 BƯỚC</span><h2>Từ câu hỏi OSINT đến bằng chứng địa không gian</h2></div>
+        <p>Earth Engine là hạ tầng phân tích dữ liệu quy mô hành tinh. Giá trị OSINT không nằm ở “ảnh vệ tinh đẹp”, mà ở quy trình biến quan sát công khai thành kết luận có thể kiểm chứng.</p>
+      </div>
+      <div class="workflow-grid">
+        <article><span>01</span><div class="step-icon"><svg class="icon"><use href="#i-search"/></svg></div><h3>Định nghĩa câu hỏi</h3><p>Chốt đối tượng, khu vực, thời gian và tiêu chí chứng minh trước khi chọn dữ liệu.</p></article>
+        <article><span>02</span><div class="step-icon"><svg class="icon"><use href="#i-database"/></svg></div><h3>Chọn dữ liệu</h3><p>Đối chiếu Landsat, Sentinel, MODIS hoặc dữ liệu cộng đồng theo độ phân giải và chu kỳ.</p></article>
+        <article><span>03</span><div class="step-icon"><svg class="icon"><use href="#i-code"/></svg></div><h3>Tạo phép phân tích</h3><p>Dùng JavaScript, Python, R hoặc QGIS để lọc mây, tổng hợp, phân loại và đo biến động.</p></article>
+        <article><span>04</span><div class="step-icon"><svg class="icon"><use href="#i-shield"/></svg></div><h3>Kiểm chứng chéo</h3><p>So với nguồn độc lập, dữ liệu thực địa, metadata và sai số trước khi kết luận.</p></article>
+        <article><span>05</span><div class="step-icon"><svg class="icon"><use href="#i-globe"/></svg></div><h3>Công bố có trách nhiệm</h3><p>Lưu phương pháp, mốc thời gian, nguồn dữ liệu và giới hạn để người khác tái lập.</p></article>
+      </div>
+    </section>
+
+    <section class="section explorer-section" id="resourceExplorer">
+      <div class="container">
+        <div class="section-heading explorer-heading">
+          <div><span class="kicker">KHO TÀI NGUYÊN VIỆT HÓA</span><h2>Tìm đúng công cụ cho bước tiếp theo</h2></div>
+          <p>Dữ liệu được nhập từ Awesome-GEE và tổ chức lại để tìm theo tên, nhóm, công nghệ hoặc trạng thái nguồn.</p>
+        </div>
+
+        <div class="search-panel" role="search">
+          <label class="search-box">
+            <svg class="icon"><use href="#i-search"/></svg>
+            <input id="searchInput" type="search" autocomplete="off" placeholder="Tìm geemap, Sentinel, thủy văn, Python...">
+            <kbd>/</kbd>
+          </label>
+          <button class="filter-button" id="mobileFilterButton" type="button" aria-controls="categoryPanel" aria-expanded="false">
+            <svg class="icon"><use href="#i-filter"/></svg> Danh mục
+          </button>
+        </div>
+
+        <div class="quick-filters" id="quickFilters" role="group" aria-label="Bộ lọc nhanh">
+          <button class="filter-chip active" type="button" data-filter="all">Tất cả</button>
+          <button class="filter-chip" type="button" data-filter="official">✓ Chính thức</button>
+          <button class="filter-chip" type="button" data-filter="JavaScript">⌘ JavaScript</button>
+          <button class="filter-chip" type="button" data-filter="Python">⌁ Python</button>
+          <button class="filter-chip" type="button" data-filter="Dữ liệu">▦ Dữ liệu</button>
+          <button class="filter-chip" type="button" data-filter="Học thuật">◫ Học thuật</button>
+          <button class="filter-chip" type="button" data-filter="favorites">★ Đã lưu</button>
+        </div>
+
+        <div class="explorer-layout">
+          <aside class="category-panel" id="categoryPanel">
+            <div class="category-head"><span>DANH MỤC</span><button id="closeCategories" type="button" aria-label="Đóng danh mục"><svg class="icon"><use href="#i-close"/></svg></button></div>
+            <div id="categoryList"></div>
+            <div class="source-card">
+              <span>Nguồn tuyển chọn</span>
+              <strong>Awesome-GEE</strong>
+              <p>Qiusheng Wu · CC0 1.0</p>
+              <a href="https://github.com/opengeos/Awesome-GEE" target="_blank" rel="noreferrer">Xem kho gốc <svg class="icon"><use href="#i-external"/></svg></a>
+            </div>
+          </aside>
+
+          <div class="results-shell">
+            <div class="results-head">
+              <p><strong id="visibleCount">0</strong> kết quả <span id="activeContext">trong toàn bộ kho</span></p>
+              <label>Sắp xếp
+                <select id="sortSelect">
+                  <option value="featured">Ưu tiên nguồn chính thức</option>
+                  <option value="az">Tên A–Z</option>
+                  <option value="category">Theo danh mục</option>
+                </select>
+              </label>
+            </div>
+            <div class="resource-grid" id="resourceGrid" aria-live="polite"></div>
+            <div class="empty-state" id="emptyState" hidden>
+              <div>⌁</div><h3>Chưa tìm thấy tài nguyên phù hợp</h3><p>Hãy thử từ khóa ngắn hơn hoặc xóa bớt bộ lọc.</p><button id="resetFilters" type="button">Xóa bộ lọc</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="responsible">
+      <div class="responsible-card">
+        <div class="responsible-icon"><svg class="icon"><use href="#i-shield"/></svg></div>
+        <div>
+          <span class="kicker">OSINT CÓ TRÁCH NHIỆM</span>
+          <h2>Dữ liệu mở không đồng nghĩa với kết luận tùy ý</h2>
+          <p>Ảnh vệ tinh và lớp dữ liệu Earth Engine có thể chứa nhiễu, mây, sai lệch thời gian, giới hạn độ phân giải hoặc điều kiện cấp phép riêng. Luôn ghi nguồn, kiểm tra metadata, xác minh chéo và tránh công bố thông tin nhạy cảm có thể gây hại cho cá nhân hay cộng đồng.</p>
+        </div>
+        <ul>
+          <li>Kiểm tra giấy phép từng bộ dữ liệu</li>
+          <li>Không suy diễn vượt quá độ phân giải</li>
+          <li>Lưu mã và tham số để tái lập</li>
+          <li>Phân biệt quan sát với kết luận</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section container source-section" id="source">
+      <div class="section-heading split-heading">
+        <div><span class="kicker">NGUỒN &amp; GHI NHẬN</span><h2>Được xây trên một danh mục mở</h2></div>
+        <p>Bản tiếng Việt giữ liên kết đến nguồn gốc, bổ sung phân loại và mô tả phục vụ người dùng Việt Nam. Tên sản phẩm, nhãn hiệu và giấy phép tài nguyên bên thứ ba vẫn thuộc chủ sở hữu tương ứng.</p>
+      </div>
+      <div class="source-grid">
+        <article><span>NGUỒN GỐC</span><h3>opengeos/Awesome-GEE</h3><p>Danh mục do <strong>Qiusheng Wu</strong> khởi tạo và cộng đồng đóng góp.</p><a href="https://github.com/opengeos/Awesome-GEE" target="_blank" rel="noreferrer">Mở nguồn gốc <svg class="icon"><use href="#i-external"/></svg></a></article>
+        <article><span>GIẤY PHÉP DANH MỤC</span><h3>CC0 1.0 Universal</h3><p>Nguồn gốc từ bỏ quyền tác giả trong phạm vi pháp luật cho phép.</p><a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noreferrer">Đọc CC0 <svg class="icon"><use href="#i-external"/></svg></a></article>
+        <article><span>BẢN VIỆT HÓA</span><h3>Base27-CVNSS · 2026</h3><p>Do <strong>Long Ngo</strong> biên tập, tổ chức dữ liệu và phát triển dashboard.</p><a href="README.md">Đọc tài liệu dự án <svg class="icon"><use href="#i-arrow"/></svg></a></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-brand"><img src="assets/gee-mark.svg" alt="" width="42" height="42"><div><strong>GEE OSINT Việt Nam</strong><span>Earth observation · Open knowledge · Responsible intelligence</span></div></div>
+      <div class="footer-links"><a href="../">OSINT Master Toolkit</a><a href="README.md">README</a><a href="SOURCES.md">Nguồn</a><a href="https://github.com/Base27-CVNSS/OSINT" target="_blank" rel="noreferrer">GitHub</a></div>
+      <p>© 2026 Base27-CVNSS · Nội dung danh mục nguồn theo CC0; mã website theo MIT của kho OSINT.</p>
+    </div>
+  </footer>
+
+  <dialog id="resourceDialog" aria-labelledby="dialogTitle">
+    <form method="dialog" class="dialog-shell">
+      <button class="dialog-close" type="submit" value="close" aria-label="Đóng"><svg class="icon"><use href="#i-close"/></svg></button>
+      <div class="dialog-kicker" id="dialogSection"></div>
+      <h2 id="dialogTitle">Tài nguyên GEE</h2>
+      <p class="dialog-original" id="dialogOriginal"></p>
+      <p id="dialogDescription"></p>
+      <div class="dialog-tags" id="dialogTags"></div>
+      <div class="dialog-note" id="dialogNote"></div>
+      <div class="dialog-actions">
+        <button class="button secondary" id="dialogFavorite" type="button">★ Lưu tài nguyên</button>
+        <a class="button primary" id="dialogOpen" href="#" target="_blank" rel="noreferrer">Mở nguồn <svg class="icon"><use href="#i-external"/></svg></a>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>

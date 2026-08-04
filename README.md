@@ -9,6 +9,7 @@
 **OSINT ALERT! 🚀 Mệt mỏi vì phải tìm công cụ ở khắp mọi nơi?**
 
 [![Dashboard](https://img.shields.io/badge/Dashboard-index.html-22d3ee?style=for-the-badge)](./index.html)
+[![GEE OSINT](https://img.shields.io/badge/Chuyên_trang-GEE_OSINT-31d6ad?style=for-the-badge)](./gee/)
 [![Categories](https://img.shields.io/badge/Categories-43-3b82f6?style=for-the-badge)](#-43-danh-mục-osint)
 [![Deduplicate](https://img.shields.io/badge/Data-Deduplicated-f59e0b?style=for-the-badge)](#-loại-trùng-dữ-liệu)
 [![Popup](https://img.shields.io/badge/Popup-Mục_đích_%2B_Cách_dùng-8b5cf6?style=for-the-badge)](#-popup-mục-đích--cách-dùng)
@@ -29,6 +30,18 @@ https://base27-cvnss.github.io/OSINT/
 Phiên bản hiện tại không còn chỉ ẩn URL trùng ở giao diện. Dữ liệu được **chuẩn hóa và loại trùng trước khi render**, giúp bộ đếm, danh mục và kết quả tìm kiếm phản ánh tập công cụ duy nhất thực tế.
 
 > Đây là **directory liên kết và tài liệu tham khảo**, không phải công cụ xâm nhập, crawler hay bộ thu thập dữ liệu tự động.
+
+## 🛰️ Chuyên trang GEE OSINT Việt Nam
+
+Repository có thêm **[GEE OSINT Việt Nam](./gee/)** — trạm điều phối **242 tài nguyên Google Earth Engine** được Việt hóa và tổ chức từ danh mục [opengeos/Awesome-GEE](https://github.com/opengeos/Awesome-GEE).
+
+- 🔎 Tìm kiếm không dấu theo tên, domain, công nghệ và chủ đề.
+- 🧭 Lọc JavaScript, Python, R, QGIS, ứng dụng, dữ liệu và nghiên cứu.
+- ⭐ Lưu tài nguyên yêu thích trên trình duyệt, không cần tài khoản.
+- 🌓 Giao diện sáng/tối, responsive và hỗ trợ bàn phím.
+- 📚 Ghi nguồn Qiusheng Wu, CC0 1.0 và giữ tên gốc để đối chiếu.
+
+**Truy cập:** <https://base27-cvnss.github.io/OSINT/gee/>
 
 ## ✨ Cập nhật mới
 
